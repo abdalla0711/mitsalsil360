@@ -148,6 +148,12 @@
 
   .stu-name{text-align:center;font-weight:800;font-size:19px;color:var(--ink);margin-top:6px;}
   .stu-meta{text-align:center;font-size:13px;color:#6b7a6f;margin-top:2px;}
+  .track-badge{
+    display:inline-block;margin:8px auto 0;padding:4px 14px;border-radius:999px;
+    background:var(--paper-deep);border:1px solid var(--gold);color:var(--green-deep);
+    font-size:12px;font-weight:800;letter-spacing:.5px;
+  }
+  .track-wrap{text-align:center;}
 
   .ribbon{
     margin:16px 0 4px;background:var(--green);color:#fff;border-radius:12px;
@@ -173,6 +179,66 @@
 
   footer.app-foot{text-align:center;font-size:11.5px;color:#9aa39c;margin-top:22px;line-height:1.9;}
 
+  /* ---- Inline live-preview links grid (bottom of page) ---- */
+  .links-section{margin-top:26px;}
+  .links-section h3{
+    text-align:center;font-size:15.5px;color:var(--green-deep);
+    font-family:'Tajawal',sans-serif;font-weight:800;margin:0 0 4px;
+  }
+  .links-section .ls-sub{
+    text-align:center;font-size:12px;color:#7c8a80;margin-bottom:14px;
+  }
+  .links-grid{
+    display:grid; grid-template-columns:1fr; gap:14px;
+  }
+  @media (min-width:560px){
+    .links-grid{grid-template-columns:1fr 1fr;}
+  }
+  .link-tile{
+    background:#FFFDF7; border:1px solid var(--line); border-radius:14px;
+    overflow:hidden; box-shadow:var(--shadow); display:flex; flex-direction:column;
+  }
+  .link-tile-head{
+    display:flex; align-items:center; justify-content:space-between; gap:8px;
+    background:var(--green); color:#fff; padding:8px 10px;
+  }
+  .link-tile-head .lt-name{font-size:12.5px;font-weight:800;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .link-tile-head .lt-btns{display:flex;gap:5px;flex:none;}
+  .link-tile-head button{
+    background:rgba(255,255,255,.16); border:none; color:#fff; border-radius:7px;
+    padding:4px 8px; font-size:10.5px; font-weight:800; cursor:pointer; font-family:'Tajawal',sans-serif;
+  }
+  .link-tile-body{position:relative; height:220px; background:#f2ede0;}
+  .link-tile-body iframe{width:100%; height:100%; border:none; display:block;}
+  .link-tile-foot{
+    font-size:10px; color:#9aa39c; text-align:center; padding:4px 6px; background:#FBF6EA;
+  }
+
+  /* ---- Full-screen preview overlay (triggered by "تكبير") ---- */
+  .frame-overlay{
+    position:fixed; z-index:60; inset:auto 0 0 0; margin:0 auto;
+    width:96vw; height:88vh;
+    background:#fff; border:2px solid var(--gold); border-radius:16px 16px 0 0;
+    box-shadow:0 -20px 50px -12px rgba(15,46,34,.5);
+    display:none; flex-direction:column; overflow:hidden;
+  }
+  .frame-overlay.open{display:flex;}
+  .frame-head{
+    display:flex; align-items:center; justify-content:space-between; gap:8px;
+    background:var(--green); color:#fff; padding:9px 12px; flex:none;
+  }
+  .frame-head .f-title{font-size:12.5px;font-weight:800;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .frame-head .f-btns{display:flex; gap:6px; flex:none;}
+  .frame-head button{
+    background:rgba(255,255,255,.15); border:none; color:#fff; border-radius:8px;
+    padding:5px 9px; font-size:11.5px; font-weight:800; cursor:pointer; font-family:'Tajawal',sans-serif;
+  }
+  .frame-body{flex:1; position:relative;}
+  .frame-body iframe{width:100%; height:100%; border:none;}
+  .frame-note{
+    text-align:center; font-size:10.5px; color:#8a9089; padding:4px 8px; background:#FBF6EA; flex:none;
+  }
+
   /* ---- Print ---- */
   @media print{
     body{background:#fff;padding:0;}
@@ -181,6 +247,7 @@
     .cert{box-shadow:none;}
     .actions{display:none !important;}
     .result-outer{box-shadow:none;border:none;padding:0;}
+    .links-section, .frame-overlay{display:none !important;}
   }
 </style>
 </head>
@@ -242,6 +309,7 @@
 
       <div class="stu-name" id="stuName">—</div>
       <div class="stu-meta" id="stuMeta">—</div>
+      <div class="track-wrap"><span class="track-badge" id="trackBadge" style="display:none;"></span></div>
 
       <div class="ribbon" id="ribbon">—</div>
 
@@ -262,10 +330,28 @@
     </div>
   </div>
 
+  <div class="links-section">
+    <h3>مواقع ومصادر تانية للنتيجة</h3>
+    <div class="ls-sub">معاينة مباشرة، بتتحدّث تلقائيًا كل دقيقة</div>
+    <div class="links-grid" id="linksGrid"></div>
+  </div>
+
   <footer class="app-foot">
     البيانات مأخوذة من ملف النتيجة الرسمي المرفق بجانب الصفحة<br>
     بالتوفيق لجميع أبناء وبنات ميت سلسيل 🌾
   </footer>
+</div>
+
+<div class="frame-overlay" id="frameOverlay">
+  <div class="frame-head">
+    <span class="f-title" id="frameTitle">—</span>
+    <div class="f-btns">
+      <button id="frameNewTab">فتح في نافذة جديدة</button>
+      <button id="frameClose">إغلاق ×</button>
+    </div>
+  </div>
+  <div class="frame-body"><iframe id="frameIframe" src="about:blank" title="معاينة الموقع"></iframe></div>
+  <div class="frame-note">لو الصفحة مش ظاهرة، دوس "فتح في نافذة جديدة" لأن بعض المواقع بتمنع عرضها هنا</div>
 </div>
 
 <input type="file" id="manualFile" accept=".xlsx,.xls" style="display:none;">
@@ -413,6 +499,22 @@
   };
   function pick(arr){ return arr[Math.floor(Math.random()*arr.length)]; }
 
+  // Track (شعبة) is inferred from which subjects actually have a grade,
+  // since the 5 subjects examined differ by track:
+  //  - علمي علوم: عربي + لغة أجنبية أولى + فيزياء + كيمياء + أحياء
+  //  - علمي رياضة: عربي + لغة أجنبية أولى + فيزياء + كيمياء + رياضيات
+  //  - أدبي: عربي + لغة أجنبية أولى + جغرافيا + تاريخ + إحصاء
+  function detectTrack(stu){
+    const present = new Set(
+      stu.subjects.filter(s => s.grade!==null && s.grade!==undefined && s.grade!=='').map(s => normalizeArabic(s.name))
+    );
+    const has = kw => [...present].some(n => n.includes(kw));
+    if(has('احياء')) return 'علمي علوم';
+    if(has('رياضيات')) return 'علمي رياضة';
+    if(has('جغرافيا') || has('تاريخ') || has('احصاء')) return 'أدبي';
+    return null;
+  }
+
   function tierFor(pct){
     if(pct>=90) return {key:'excellent', label:'ممتاز'};
     if(pct>=80) return {key:'veryGood', label:'جيد جدًا'};
@@ -435,16 +537,24 @@
     document.getElementById('stuMeta').textContent =
       'رقم الجلوس: ' + stu.seat + (stu.total!==null ? '   ·   المجموع: ' + stu.total + ' من ' + maxTotal : '');
 
+    const trackBadge = document.getElementById('trackBadge');
+    const track = detectTrack(stu);
+    if(track){ trackBadge.textContent = track; trackBadge.style.display='inline-block'; }
+    else { trackBadge.style.display='none'; }
+
     const ribbon = document.getElementById('ribbon');
     ribbon.innerHTML = (pct!==null ? pick(PHRASES[tier.key]) : 'نتمنى لك كل التوفيق') +
       '<span class="sig">من صفحة ميت سلسيل 360</span>';
 
     const body = document.getElementById('gradesBody');
     body.innerHTML = '';
+    // only list subjects this student actually sat for (grade present) —
+    // this keeps the table to the 5 subjects of their track, whatever it is
     stu.subjects.forEach(s=>{
       if(!s.name) return;
+      if(s.grade===null || s.grade===undefined || s.grade==='') return;
       const tr = document.createElement('tr');
-      tr.innerHTML = '<td class="subject-cell">'+s.name+'</td><td>'+(s.grade===null?'—':s.grade)+'</td>';
+      tr.innerHTML = '<td class="subject-cell">'+s.name+'</td><td>'+s.grade+'</td>';
       body.appendChild(tr);
     });
     if(stu.total!==null){
@@ -508,6 +618,76 @@
   });
   document.getElementById('nameInput').addEventListener('keydown', e=>{
     if(e.key==='Enter') document.getElementById('nameBtn').click();
+  });
+
+  // ---------------- Live-preview links grid (bottom of page) ----------------
+  const OFFICIAL_LINKS = [
+    {name:'موقع نتيجة الثانوية العامة (رسمي - تحديث لحظي)', url:'https://www.natega-youm7.online/p/2025_15.html'},
+    {name:'بوابة الثانوية العامة - وزارة التربية والتعليم', url:'https://thanwya.emis.gov.eg/'},
+    {name:'موقع اليوم السابع', url:'http://www.youm7.com/'},
+    {name:'موقع فيتو', url:'http://www.vetogate.com/'},
+    {name:'موقع الدستور', url:'https://www.dostor.org/'},
+    {name:'موقع نتائج الامتحانات', url:'https://www.natega-youm7.online/'},
+    {name:'جريدة الوطن', url:'https://www.elwatannews.com/'},
+    {name:'بوابة الأهرام', url:'https://gate.ahram.org.eg/'},
+    {name:'صدى البلد', url:'https://natega.elbalad.news/'},
+    {name:'وزارة التربية والتعليم', url:'http://www.moe.gov.eg/'},
+    {name:'نتيجة ثانوي', url:'https://www.natega-youm7.online/p/2026_0508284584.htm'}
+  ];
+  const REFRESH_MS = 60 * 1000; // كل دقيقة
+
+  function withCacheBuster(url, ts){
+    return url + (url.includes('?') ? '&' : '?') + '_r=' + ts;
+  }
+
+  const linksGrid = document.getElementById('linksGrid');
+  const liveFrames = []; // {url, iframe}
+
+  OFFICIAL_LINKS.forEach((link, idx)=>{
+    const tile = document.createElement('div');
+    tile.className = 'link-tile';
+    tile.innerHTML =
+      '<div class="link-tile-head">' +
+        '<span class="lt-name">'+link.name+'</span>' +
+        '<div class="lt-btns">' +
+          '<button data-act="max">تكبير</button>' +
+          '<button data-act="open">فتح مباشر</button>' +
+        '</div>' +
+      '</div>' +
+      '<div class="link-tile-body"><iframe id="live_'+idx+'" src="'+link.url+'" loading="lazy" title="'+link.name+'"></iframe></div>' +
+      '<div class="link-tile-foot">لو المعاينة مش ظاهرة، استخدم "فتح مباشر"</div>';
+    tile.querySelector('[data-act="open"]').addEventListener('click', ()=> window.open(link.url, '_blank'));
+    tile.querySelector('[data-act="max"]').addEventListener('click', ()=> openPreview(link));
+    linksGrid.appendChild(tile);
+    liveFrames.push({url: link.url, iframe: tile.querySelector('iframe')});
+  });
+
+  // refresh every tile's preview every minute (cache-busted reload)
+  setInterval(()=>{
+    const ts = Date.now();
+    liveFrames.forEach(f => { f.iframe.src = withCacheBuster(f.url, ts); });
+  }, REFRESH_MS);
+
+  // ---------------- Full-screen preview overlay (from "تكبير") ----------------
+  const frameOverlay = document.getElementById('frameOverlay');
+  const frameIframe = document.getElementById('frameIframe');
+  const frameTitle = document.getElementById('frameTitle');
+  const frameClose = document.getElementById('frameClose');
+  const frameNewTab = document.getElementById('frameNewTab');
+  let currentUrl = '';
+
+  function openPreview(link){
+    currentUrl = link.url;
+    frameTitle.textContent = link.name;
+    frameIframe.src = link.url;
+    frameOverlay.classList.add('open');
+  }
+  frameClose.addEventListener('click', ()=>{
+    frameOverlay.classList.remove('open');
+    frameIframe.src = 'about:blank';
+  });
+  frameNewTab.addEventListener('click', ()=>{
+    if(currentUrl) window.open(currentUrl, '_blank');
   });
 })();
 </script>
