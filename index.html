@@ -1,3 +1,4 @@
+--- START OF FILE index (5).html ---
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -23,8 +24,7 @@
   *{box-sizing:border-box;}
   html,body{margin:0;padding:0;}
   body{
-    background:
-      radial-gradient(1200px 600px at 50% -10%, #ffffff 0%, var(--paper) 55%, var(--paper-deep) 100%);
+    background: radial-gradient(1200px 600px at 50% -10%, #ffffff 0%, var(--paper) 55%, var(--paper-deep) 100%);
     color:var(--ink);
     font-family:'Tajawal', sans-serif;
     min-height:100vh;
@@ -32,15 +32,12 @@
   }
   .wrap{max-width:520px;margin:0 auto;}
 
-  /* ---- Header / seal mark ---- */
   .brandbar{display:flex;flex-direction:column;align-items:center;text-align:center;margin-bottom:26px;}
-  .seal-mini{width:64px;height:64px;margin-bottom:10px;}
   .village{
     font-family:'Aref Ruqaa', serif;
     font-weight:700;
     font-size:30px;
     color:var(--green-deep);
-    letter-spacing:.5px;
   }
   .village small{
     display:block;
@@ -51,14 +48,8 @@
     color:var(--brick);
     margin-top:4px;
   }
-  .subtitle{
-    margin-top:8px;
-    font-size:13.5px;
-    color:#5b6b60;
-    font-weight:500;
-  }
+  .subtitle{margin-top:8px; font-size:13.5px; color:#5b6b60; font-weight:500;}
 
-  /* ---- Card shell ---- */
   .card{
     background:linear-gradient(180deg,#fff, #FDFBF4);
     border:1px solid var(--line);
@@ -68,186 +59,75 @@
     margin-bottom:16px;
   }
 
-  /* ---- Tabs ---- */
-  .tabs{display:flex;background:var(--paper-deep);border-radius:14px;padding:4px;margin-bottom:16px;border:1px solid var(--line);}
+  .tabs{display:flex;background:var(--paper-deep);border-radius:14px;padding:4px;margin-bottom:16px;}
   .tab{
     flex:1;text-align:center;padding:10px 6px;border-radius:11px;font-weight:700;font-size:14.5px;
-    color:#6b7a6f;cursor:pointer;transition:.2s;user-select:none;
+    color:#6b7a6f;cursor:pointer;transition:.2s;
   }
-  .tab.active{background:var(--green);color:#fff;box-shadow:0 6px 14px -6px rgba(15,46,34,.5);}
+  .tab.active{background:var(--green);color:#fff;}
 
-  label.field-label{display:block;font-size:13px;font-weight:700;color:var(--green-deep);margin:2px 0 8px;}
+  label.field-label{display:block;font-size:13px;font-weight:700;color:var(--green-deep);margin-bottom:8px;}
   .ticket{
-    display:flex;align-items:center;gap:10px;
-    background:#fff;border:2px dashed var(--gold);border-radius:14px;
-    padding:6px 6px 6px 6px;
+    display:flex;align-items:center;background:#fff;border:2px dashed var(--gold);border-radius:14px;padding:6px;
   }
   .ticket input{
     flex:1;border:none;outline:none;background:transparent;
     font-family:'Tajawal',sans-serif;font-size:22px;font-weight:800;
-    color:var(--ink);text-align:center;padding:12px 4px;letter-spacing:1px;
+    text-align:center;padding:12px 4px;
   }
-  .ticket input::placeholder{color:#b9b0a0;font-weight:600;font-size:15px;}
   input[type=text].name-input{
-    width:100%;border:2px solid var(--line);border-radius:14px;padding:14px 14px;
-    font-family:'Tajawal',sans-serif;font-size:16px;font-weight:600;outline:none;background:#fff;
+    width:100%;border:2px solid var(--line);border-radius:14px;padding:14px;
+    font-family:'Tajawal',sans-serif;font-size:16px;font-weight:600;outline:none;
   }
-  input[type=text].name-input:focus, .ticket:focus-within{border-color:var(--green);}
 
   .btn{
     width:100%;margin-top:14px;border:none;border-radius:14px;padding:14px;
     font-family:'Tajawal',sans-serif;font-weight:800;font-size:16px;cursor:pointer;
     background:var(--green);color:#fff;transition:.15s;
   }
-  .btn:active{transform:scale(.98);}
-  .btn.secondary{background:transparent;color:var(--green);border:2px solid var(--green);}
   .btn.gold{background:var(--gold);color:#3a2a08;}
+  .btn.secondary{background:white; border:2px solid var(--green); color:var(--green);}
 
-  .hint{font-size:12.5px;color:#7c8a80;margin-top:10px;line-height:1.7;text-align:center;}
   .error-box{
     background:#FBEAE5;border:1px solid #E6B7A6;color:var(--brick);
-    border-radius:12px;padding:12px 14px;font-size:14px;font-weight:600;margin-top:14px;text-align:center;
+    border-radius:12px;padding:12px;font-size:14px;font-weight:600;margin-top:14px;text-align:center;
   }
 
-  /* ---- name results list ---- */
-  .match-list{margin-top:12px;display:flex;flex-direction:column;gap:8px;}
-  .match-item{
-    background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 14px;
-    display:flex;justify-content:space-between;align-items:center;cursor:pointer;
-  }
-  .match-item:hover{border-color:var(--green);}
-  .match-item .m-name{font-weight:700;font-size:14.5px;}
-  .match-item .m-seat{font-size:12.5px;color:#8a9089;}
-
-  /* ---- Result / certificate ---- */
+  /* النتيجة والشهادة */
   #resultCard{display:none;}
   .cert{
-    position:relative;
-    border:2px solid var(--gold);
-    outline:1px solid var(--paper-deep);
-    outline-offset:-8px;
-    border-radius:20px;
-    padding:26px 20px 20px;
-    background:
-      repeating-linear-gradient(135deg, rgba(198,150,58,.05) 0 2px, transparent 2px 26px),
-      #FFFDF7;
+    border:2px solid var(--gold); border-radius:20px; padding:26px 20px; background:#FFFDF7; position:relative;
   }
-  .cert-title{text-align:center;font-family:'Aref Ruqaa',serif;font-size:22px;color:var(--green-deep);font-weight:700;}
-  .cert-sub{text-align:center;font-size:12px;color:var(--brick);font-weight:700;letter-spacing:2px;margin-top:2px;}
-
-  .seal{
-    width:132px;height:132px;margin:16px auto 6px;position:relative;
-  }
-  .seal svg{width:100%;height:100%;display:block;}
-  .seal-pct{
-    position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
-  }
-  .seal-pct .num{font-size:26px;font-weight:800;color:var(--green-deep);font-family:'Tajawal',sans-serif;}
-  .seal-pct .num sup{font-size:13px;}
-  .seal-pct .tier{font-size:11px;font-weight:800;color:var(--brick);margin-top:1px;}
-
-  .stu-name{text-align:center;font-weight:800;font-size:19px;color:var(--ink);margin-top:6px;}
-  .stu-meta{text-align:center;font-size:13px;color:#6b7a6f;margin-top:2px;}
+  .cert-title{text-align:center;font-family:'Aref Ruqaa',serif;font-size:22px;color:var(--green-deep);}
+  .seal{ width:132px; height:132px; margin:16px auto; position:relative; }
+  .seal-pct{ position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; }
+  .seal-pct .num{font-size:26px;font-weight:800;color:var(--green-deep);}
+  .stu-name{text-align:center;font-weight:800;font-size:19px;margin-top:6px;}
+  .stu-meta{text-align:center;font-size:13px;color:#6b7a6f;margin-bottom:10px;}
   .track-badge{
-    display:inline-block;margin:8px auto 0;padding:4px 14px;border-radius:999px;
-    background:var(--paper-deep);border:1px solid var(--gold);color:var(--green-deep);
-    font-size:12px;font-weight:800;letter-spacing:.5px;
-  }
-  .track-wrap{text-align:center;}
-
-  .ribbon{
-    margin:16px 0 4px;background:var(--green);color:#fff;border-radius:12px;
-    padding:12px 16px;font-size:14px;font-weight:600;line-height:1.8;text-align:center;
-    position:relative;
-  }
-  .ribbon .sig{display:block;margin-top:6px;font-size:11.5px;font-weight:800;color:var(--gold-soft);letter-spacing:1px;}
-
-  table.grades{width:100%;border-collapse:collapse;margin-top:16px;font-size:14px;}
-  table.grades th, table.grades td{padding:9px 8px;border-bottom:1px solid var(--line);text-align:center;}
-  table.grades th{color:var(--green-deep);font-size:12.5px;font-weight:800;background:var(--paper-deep);}
-  table.grades tr:last-child td{border-bottom:none;}
-  table.grades td.subject-cell{text-align:start;font-weight:600;}
-  .total-row td{font-weight:800;color:var(--green-deep);background:#FBF6EA;}
-
-  .cert-foot{display:flex;justify-content:space-between;margin-top:16px;font-size:11px;color:#8a9089;}
-
-  .actions{display:flex;gap:10px;margin-top:16px;}
-  .actions .btn{margin-top:0;}
-
-  /* ---- Loading / status ---- */
-  .status{text-align:center;font-size:13.5px;color:#7c8a80;padding:10px 0;}
-
-  footer.app-foot{text-align:center;font-size:11.5px;color:#9aa39c;margin-top:22px;line-height:1.9;}
-
-  /* ---- Inline live-preview links grid (bottom of page) ---- */
-  .links-section{margin-top:26px;}
-  .links-section h3{
-    text-align:center;font-size:15.5px;color:var(--green-deep);
-    font-family:'Tajawal',sans-serif;font-weight:800;margin:0 0 4px;
-  }
-  .links-section .ls-sub{
-    text-align:center;font-size:12px;color:#7c8a80;margin-bottom:14px;
-  }
-  .links-grid{
-    display:grid; grid-template-columns:1fr; gap:14px;
-  }
-  @media (min-width:560px){
-    .links-grid{grid-template-columns:1fr 1fr;}
-  }
-  .link-tile{
-    background:#FFFDF7; border:1px solid var(--line); border-radius:14px;
-    overflow:hidden; box-shadow:var(--shadow); display:flex; flex-direction:column;
-  }
-  .link-tile-head{
-    display:flex; align-items:center; justify-content:space-between; gap:8px;
-    background:var(--green); color:#fff; padding:8px 10px;
-  }
-  .link-tile-head .lt-name{font-size:12.5px;font-weight:800;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-  .link-tile-head .lt-btns{display:flex;gap:5px;flex:none;}
-  .link-tile-head button{
-    background:rgba(255,255,255,.16); border:none; color:#fff; border-radius:7px;
-    padding:4px 8px; font-size:10.5px; font-weight:800; cursor:pointer; font-family:'Tajawal',sans-serif;
-  }
-  .link-tile-body{position:relative; height:220px; background:#f2ede0;}
-  .link-tile-body iframe{width:100%; height:100%; border:none; display:block;}
-  .link-tile-foot{
-    font-size:10px; color:#9aa39c; text-align:center; padding:4px 6px; background:#FBF6EA;
+    display:block; width:fit-content; margin:0 auto 10px; padding:4px 14px; border-radius:999px;
+    background:var(--paper-deep); border:1px solid var(--gold); color:var(--green-deep); font-size:12px; font-weight:800;
   }
 
-  /* ---- Full-screen preview overlay (triggered by "تكبير") ---- */
-  .frame-overlay{
-    position:fixed; z-index:60; inset:auto 0 0 0; margin:0 auto;
-    width:96vw; height:88vh;
-    background:#fff; border:2px solid var(--gold); border-radius:16px 16px 0 0;
-    box-shadow:0 -20px 50px -12px rgba(15,46,34,.5);
-    display:none; flex-direction:column; overflow:hidden;
-  }
-  .frame-overlay.open{display:flex;}
-  .frame-head{
-    display:flex; align-items:center; justify-content:space-between; gap:8px;
-    background:var(--green); color:#fff; padding:9px 12px; flex:none;
-  }
-  .frame-head .f-title{font-size:12.5px;font-weight:800;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-  .frame-head .f-btns{display:flex; gap:6px; flex:none;}
-  .frame-head button{
-    background:rgba(255,255,255,.15); border:none; color:#fff; border-radius:8px;
-    padding:5px 9px; font-size:11.5px; font-weight:800; cursor:pointer; font-family:'Tajawal',sans-serif;
-  }
-  .frame-body{flex:1; position:relative;}
-  .frame-body iframe{width:100%; height:100%; border:none;}
-  .frame-note{
-    text-align:center; font-size:10.5px; color:#8a9089; padding:4px 8px; background:#FBF6EA; flex:none;
-  }
+  table.grades{width:100%;border-collapse:collapse;margin-top:16px;}
+  table.grades th, table.grades td{padding:10px; border-bottom:1px solid var(--line); text-align:center; font-size:14px;}
+  table.grades th{background:var(--paper-deep); color:var(--green-deep); font-weight:800;}
+  .subject-name{text-align:right !important; font-weight:600;}
+  .total-row td{font-weight:800; background:#FBF6EA; color:var(--green-deep);}
 
-  /* ---- Print ---- */
+  /* قسم الروابط الجديد */
+  .links-section{margin-top:30px; text-align:center; background:rgba(198,150,58,0.1); padding:20px; border-radius:18px; border:1px solid var(--gold-soft);}
+  .links-section h3{font-size:16px; color:var(--green-deep); margin-bottom:10px;}
+  .links-section p{font-size:12px; color:#6b7a6f; margin-bottom:15px;}
+  .open-all-btn{
+    background:var(--brick); color:white; border:none; padding:15px 25px; border-radius:12px; font-weight:800; cursor:pointer; font-family:'Tajawal'; width:100%; font-size:15px;
+  }
+  .open-all-btn:hover{filter:brightness(1.1);}
+
   @media print{
-    body{background:#fff;padding:0;}
-    .brandbar, .card:not(.result-outer), footer.app-foot{display:none !important;}
-    .wrap{max-width:100%;}
-    .cert{box-shadow:none;}
-    .actions{display:none !important;}
-    .result-outer{box-shadow:none;border:none;padding:0;}
-    .links-section, .frame-overlay{display:none !important;}
+    .brandbar, .card:not(.result-outer), .links-section, .actions{display:none !important;}
+    body{padding:0; background:white;}
+    .cert{border:2px solid #000;}
   }
 </style>
 </head>
@@ -255,439 +135,170 @@
 <div class="wrap">
 
   <div class="brandbar">
-    <svg class="seal-mini" viewBox="0 0 100 100">
-      <circle cx="50" cy="50" r="46" fill="none" stroke="#C6963A" stroke-width="2.5"/>
-      <circle cx="50" cy="50" r="38" fill="none" stroke="#1B4332" stroke-width="1.5" stroke-dasharray="2 4"/>
-      <text x="50" y="46" text-anchor="middle" font-family="Aref Ruqaa, serif" font-size="15" fill="#1B4332" font-weight="700">ميت سلسيل</text>
-      <text x="50" y="65" text-anchor="middle" font-family="Tajawal, sans-serif" font-size="12" fill="#A14A34" font-weight="800">360</text>
-    </svg>
-    <div class="village">نتيجة الثانوية العامة<small>ميت سلسيل &nbsp;·&nbsp; دور 2026</small></div>
-    <div class="subtitle">استعلم عن نتيجتك برقم الجلوس أو بالاسم</div>
+    <div class="village">نتيجة الثانوية العامة<small>ميت سلسيل &nbsp;·&nbsp; 2026</small></div>
+    <div class="subtitle">النظام الجديد - المجموع من 320 درجة</div>
   </div>
 
   <div class="card" id="searchCard">
     <div class="tabs">
       <div class="tab active" data-tab="seat">رقم الجلوس</div>
-      <div class="tab" data-tab="name">بحث بالاسم</div>
+      <div class="tab" data-tab="name">بالاسم</div>
     </div>
 
     <div id="seatPane">
-      <label class="field-label">رقم الجلوس</label>
-      <div class="ticket">
-        <input id="seatInput" type="tel" inputmode="numeric" placeholder="اكتب رقم الجلوس هنا" maxlength="12">
-      </div>
-      <button class="btn" id="seatBtn">عرض النتيجة</button>
+      <label class="field-label">أدخل رقم الجلوس</label>
+      <div class="ticket"><input id="seatInput" type="tel" placeholder="000000"></div>
+      <button class="btn" id="seatBtn">إظهار الشهادة</button>
     </div>
 
     <div id="namePane" style="display:none;">
-      <label class="field-label">اسم الطالب / الطالبة</label>
-      <input id="nameInput" type="text" class="name-input" placeholder="اكتب الاسم كامل أو جزء منه">
-      <button class="btn" id="nameBtn">بحث</button>
-      <div id="matchList" class="match-list"></div>
+      <label class="field-label">اسم الطالب رباعي</label>
+      <input id="nameInput" type="text" class="name-input" placeholder="اكتب اسمك هنا...">
+      <button class="btn" id="nameBtn">بحث بالاسم</button>
+      <div id="matchList" style="margin-top:10px;"></div>
     </div>
 
     <div id="errorBox" class="error-box" style="display:none;"></div>
-    <div id="statusBox" class="status">جاري تحميل ملف النتيجة…</div>
+    <div id="statusBox" style="text-align:center; font-size:12px; color:#8a9089; margin-top:15px;">جاري تجهيز النظام...</div>
   </div>
 
   <div class="card result-outer" id="resultCard">
     <div class="cert">
-      <div class="cert-title">شهادة النتيجة</div>
-      <div class="cert-sub">ميت سلسيل 360 — دور 2026</div>
-
+      <div class="cert-title">شهادة نجاح مؤقتة</div>
       <div class="seal">
-        <svg viewBox="0 0 120 120">
-          <path d="M60 4 L67 18 L83 12 L84 29 L100 30 L94 46 L108 56 L94 66 L100 82 L84 83 L83 100 L67 94 L60 108 L53 94 L37 100 L36 83 L20 82 L26 66 L12 56 L26 46 L20 30 L36 29 L37 12 L53 18 Z"
-                fill="#FFFDF7" stroke="#C6963A" stroke-width="2.5"/>
-          <circle cx="60" cy="60" r="40" fill="none" stroke="#1B4332" stroke-width="1.2" stroke-dasharray="1 3"/>
-        </svg>
+        <svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="55" fill="none" stroke="#C6963A" stroke-width="2"/><circle cx="60" cy="60" r="45" fill="none" stroke="#1B4332" stroke-width="1" stroke-dasharray="2 2"/></svg>
         <div class="seal-pct">
-          <div class="num" id="pctNum">--<sup>%</sup></div>
-          <div class="tier" id="pctTier">—</div>
+          <div class="num" id="pctNum">0%</div>
+          <div style="font-size:10px; font-weight:700; color:var(--brick)" id="pctTier">ناجح</div>
         </div>
       </div>
-
-      <div class="stu-name" id="stuName">—</div>
-      <div class="stu-meta" id="stuMeta">—</div>
-      <div class="track-wrap"><span class="track-badge" id="trackBadge" style="display:none;"></span></div>
-
-      <div class="ribbon" id="ribbon">—</div>
-
-      <table class="grades" id="gradesTable">
-        <thead><tr><th>المادة</th><th>الدرجة</th></tr></thead>
+      <div class="stu-name" id="stuName">اسم الطالب</div>
+      <div class="stu-meta" id="stuMeta">رقم الجلوس: 0000</div>
+      <span class="track-badge">علمي علوم</span>
+      
+      <table class="grades">
+        <thead><tr><th class="subject-name">المادة</th><th>الدرجة</th><th>النهاية</th></tr></thead>
         <tbody id="gradesBody"></tbody>
+        <tfoot><tr class="total-row"><td class="subject-name">المجموع الكلي</td><td id="totalScore">0</td><td>320</td></tr></tfoot>
       </table>
-
-      <div class="cert-foot">
-        <span id="printDate"></span>
-        <span>صفحة ميت سلسيل 360</span>
-      </div>
     </div>
-
-    <div class="actions">
-      <button class="btn secondary" id="newSearchBtn">بحث جديد</button>
-      <button class="btn gold" id="printBtn">طباعة النتيجة</button>
+    <div class="actions" style="display:flex; gap:10px; margin-top:15px;">
+      <button class="btn secondary" onclick="location.reload()">بحث جديد</button>
+      <button class="btn gold" onclick="window.print()">طباعة</button>
     </div>
   </div>
 
+  <!-- قسم الروابط الجديد -->
   <div class="links-section">
-    <h3>مواقع ومصادر تانية للنتيجة</h3>
-    <div class="ls-sub">معاينة مباشرة، بتتحدّث تلقائيًا كل دقيقة</div>
-    <div class="links-grid" id="linksGrid"></div>
+    <h3>الروابط الرسمية (اليوم السابع، الدستور، الوزارة)</h3>
+    <p>بضغطة واحدة، سنفتح لك جميع المواقع التي تعرض النتيجة الآن في تبويبات جديدة</p>
+    <button class="open-all-btn" id="openAllLinks">🚀 افتح جميع المواقع الرسمية الآن</button>
+    <div style="font-size: 10px; color: #a14a34; margin-top: 10px;">* تأكد من السماح للمتصفح بفتح النوافذ المنبثقة (Pop-ups)</div>
   </div>
 
-  <footer class="app-foot">
-    البيانات مأخوذة من ملف النتيجة الرسمي المرفق بجانب الصفحة<br>
-    بالتوفيق لجميع أبناء وبنات ميت سلسيل 🌾
+  <footer style="text-align:center; font-size:11px; color:#9aa39c; margin-top:30px;">
+    جميع الحقوق محفوظة لصفحة ميت سلسيل 360<br>نتمنى التوفيق لكل طلابنا.
   </footer>
 </div>
 
-<div class="frame-overlay" id="frameOverlay">
-  <div class="frame-head">
-    <span class="f-title" id="frameTitle">—</span>
-    <div class="f-btns">
-      <button id="frameNewTab">فتح في نافذة جديدة</button>
-      <button id="frameClose">إغلاق ×</button>
-    </div>
-  </div>
-  <div class="frame-body"><iframe id="frameIframe" src="about:blank" title="معاينة الموقع"></iframe></div>
-  <div class="frame-note">لو الصفحة مش ظاهرة، دوس "فتح في نافذة جديدة" لأن بعض المواقع بتمنع عرضها هنا</div>
-</div>
-
-<input type="file" id="manualFile" accept=".xlsx,.xls" style="display:none;">
-
 <script>
 (function(){
-  const DATA_FILENAME = "students.xlsx";
+  // الإعدادات الجديدة لعام 2026
+  const MAX_TOTAL = 320;
+  const SUBJECT_MAX = {
+    'اللغة العربية': 80,
+    'اللغة الأجنبية الأولى': 60,
+    'الكيمياء': 60,
+    'الفيزياء': 60,
+    'الأحياء': 60
+  };
+
+  const OFFICIAL_LINKS = [
+    'https://natega.youm7.com/',
+    'https://www.dostor.org/natega/',
+    'https://thanwya.emis.gov.eg/',
+    'https://natega.elwatannews.com/',
+    'https://gate.ahram.org.eg/'
+  ];
+
   let students = [];
-  let maxTotal = null;
-  let subjectNames = [];
-  let dataReady = false;
+  const DATA_FILENAME = "students.xlsx";
 
-  const statusBox = document.getElementById('statusBox');
-  const errorBox = document.getElementById('errorBox');
-  const manualFile = document.getElementById('manualFile');
-
-  function showError(msg){
-    errorBox.style.display='block';
-    errorBox.textContent = msg;
-  }
-  function clearError(){ errorBox.style.display='none'; }
-
-  function normalizeArabic(s){
-    if(s===null||s===undefined) return '';
-    return String(s).trim()
-      .replace(/[\u064B-\u065F\u0670\u06D6-\u06ED]/g,'')
-      .replace(/[إأآا]/g,'ا')
-      .replace(/ى/g,'ي')
-      .replace(/ة/g,'ه')
-      .replace(/ؤ/g,'و')
-      .replace(/ئ/g,'ي')
-      .replace(/\s+/g,' ')
-      .toLowerCase();
-  }
-
-  function parseWorkbook(arrayBuffer){
-    const wb = XLSX.read(arrayBuffer, {type:'array'});
-    const sheet = wb.Sheets[wb.SheetNames[0]];
-    const rows = XLSX.utils.sheet_to_json(sheet, {header:1, defval:null});
-    if(!rows.length){ throw new Error('الملف فارغ'); }
-
-    const header = rows[0];
-    maxTotal = Number(header[0]);
-    subjectNames = header.slice(3).map(h => (h===null? '' : String(h).trim())).filter(h=>h!=='');
-
-    students = rows.slice(1)
-      .filter(r => r && r[0]!==null && r[0]!==undefined && r[0]!=='')
-      .map(r => {
-        const subj = [];
-        for(let i=0;i<subjectNames.length;i++){
-          const val = r[3+i];
-          subj.push({ name: subjectNames[i], grade: (val===null||val===undefined||val==='') ? null : val });
-        }
-        return {
-          seat: String(r[0]).trim(),
-          total: (r[1]===null||r[1]===undefined) ? null : Number(r[1]),
-          name: r[2]===null? '' : String(r[2]).trim(),
-          normName: normalizeArabic(r[2]),
-          subjects: subj
-        };
-      });
-
-    if(!isFinite(maxTotal) || maxTotal<=0){
-      throw new Error('تعذر قراءة الدرجة النهائية (يجب كتابتها كرقم في رأس العمود الأول)');
-    }
-    dataReady = true;
-    statusBox.textContent = 'تم تحميل بيانات النتيجة (' + students.length + ' طالب)';
-  }
-
-  function tryAutoLoad(){
-    fetch('./' + DATA_FILENAME)
-      .then(r => { if(!r.ok) throw new Error('not found'); return r.arrayBuffer(); })
-      .then(buf => {
-        parseWorkbook(buf);
-      })
-      .catch(() => {
-        statusBox.textContent = 'لم يتم العثور على ملف "' + DATA_FILENAME + '" تلقائيًا';
-        offerManualUpload();
-      });
-  }
-
-  function offerManualUpload(){
-    const btn = document.createElement('button');
-    btn.className = 'btn secondary';
-    btn.style.marginTop = '10px';
-    btn.textContent = 'اختيار ملف النتيجة يدويًا';
-    btn.onclick = () => manualFile.click();
-    statusBox.after(btn);
-  }
-
-  manualFile.addEventListener('change', function(e){
-    const file = e.target.files[0];
-    if(!file) return;
-    clearError();
-    statusBox.textContent = 'جاري القراءة…';
-    const reader = new FileReader();
-    reader.onload = function(evt){
-      try{
-        parseWorkbook(evt.target.result);
-      }catch(err){
-        showError(err.message || 'تعذرت قراءة الملف');
-      }
-    };
-    reader.readAsArrayBuffer(file);
+  // فتح جميع الروابط
+  document.getElementById('openAllLinks').addEventListener('click', () => {
+    OFFICIAL_LINKS.forEach(url => window.open(url, '_blank'));
   });
 
-  tryAutoLoad();
+  function normalize(s) {
+    if(!s) return '';
+    return String(s).trim().replace(/[إأآا]/g,'ا').replace(/ى/g,'ي').replace(/ة/g,'ه').replace(/\s+/g,' ');
+  }
 
-  // ---------------- Tabs ----------------
-  const tabs = document.querySelectorAll('.tab');
-  const seatPane = document.getElementById('seatPane');
-  const namePane = document.getElementById('namePane');
-  tabs.forEach(t => t.addEventListener('click', () => {
-    tabs.forEach(x=>x.classList.remove('active'));
-    t.classList.add('active');
-    clearError();
-    document.getElementById('matchList').innerHTML='';
-    if(t.dataset.tab==='seat'){ seatPane.style.display='block'; namePane.style.display='none'; }
-    else { seatPane.style.display='none'; namePane.style.display='block'; }
+  // تحميل البيانات
+  fetch('./' + DATA_FILENAME).then(r => r.arrayBuffer()).then(buf => {
+    const wb = XLSX.read(buf, {type:'array'});
+    const rows = XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]], {header:1});
+    const headers = rows[0]; // نفترض العمود 0 رقم جلوس، 1 مجموع، 2 اسم، 3+ مواد
+    
+    students = rows.slice(1).map(r => ({
+      seat: String(r[0]),
+      total: Number(r[1]),
+      name: String(r[2]),
+      normName: normalize(r[2]),
+      grades: headers.slice(3).map((h, i) => ({ name: h, val: r[i+3] }))
+    }));
+    document.getElementById('statusBox').textContent = "تم تحميل " + students.length + " طالب بنجاح";
+  }).catch(() => {
+    document.getElementById('statusBox').innerHTML = "بانتظار رفع ملف النتيجة (students.xlsx)";
+  });
+
+  // تبديل التبويبات
+  document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', function(){
+    document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+    this.classList.add('active');
+    document.getElementById('seatPane').style.display = this.dataset.tab === 'seat' ? 'block' : 'none';
+    document.getElementById('namePane').style.display = this.dataset.tab === 'name' ? 'block' : 'none';
   }));
 
-  // ---------------- Congratulation phrasing ----------------
-  const PHRASES = {
-    excellent: [
-      "مبروك يا بطل! نتيجة تشرّف ميت سلسيل كلها 🌟",
-      "ألف مبروك النجاح والتفوق، ميت سلسيل فخورة بيك!",
-      "تفوق باهر يستاهل كل تهنئة، ربنا ينور مستقبلك"
-    ],
-    veryGood: [
-      "مبروك النجاح يا نجم، جيد جدًا تستاهل عليها تهنئة كبيرة",
-      "نتيجة جميلة ومجهود واضح، ألف مبروك!"
-    ],
-    good: [
-      "مبروك النجاح، وربنا يوفقك في القادم",
-      "نجاح يستاهل تهنئة، استمر كده"
-    ],
-    pass: [
-      "مبروك النجاح، المهم إنك عديت بسلام",
-      "الحمد لله على النجاح، بالتوفيق في القادم"
-    ],
-    secondRound: [
-      "ربنا يوفقك في الدور الثاني، ومحدش هيقف قدام همتك",
-      "خد نفسك وذاكر بجد للدور الثاني، إحنا معاك"
-    ]
-  };
-  function pick(arr){ return arr[Math.floor(Math.random()*arr.length)]; }
-
-  // Track (شعبة) is inferred from which subjects actually have a grade,
-  // since the 5 subjects examined differ by track:
-  //  - علمي علوم: عربي + لغة أجنبية أولى + فيزياء + كيمياء + أحياء
-  //  - علمي رياضة: عربي + لغة أجنبية أولى + فيزياء + كيمياء + رياضيات
-  //  - أدبي: عربي + لغة أجنبية أولى + جغرافيا + تاريخ + إحصاء
-  function detectTrack(stu){
-    const present = new Set(
-      stu.subjects.filter(s => s.grade!==null && s.grade!==undefined && s.grade!=='').map(s => normalizeArabic(s.name))
-    );
-    const has = kw => [...present].some(n => n.includes(kw));
-    if(has('احياء')) return 'علمي علوم';
-    if(has('رياضيات')) return 'علمي رياضة';
-    if(has('جغرافيا') || has('تاريخ') || has('احصاء')) return 'أدبي';
-    return null;
-  }
-
-  function tierFor(pct){
-    if(pct>=90) return {key:'excellent', label:'ممتاز'};
-    if(pct>=80) return {key:'veryGood', label:'جيد جدًا'};
-    if(pct>=65) return {key:'good', label:'جيد'};
-    if(pct>=50) return {key:'pass', label:'مقبول'};
-    return {key:'secondRound', label:'الدور الثاني'};
-  }
-
-  // ---------------- Rendering result ----------------
-  const resultCard = document.getElementById('resultCard');
-  const searchCard = document.getElementById('searchCard');
-
-  function renderResult(stu){
-    const pct = stu.total!==null ? Math.round((stu.total/maxTotal)*10000)/100 : null;
-    const tier = pct!==null ? tierFor(pct) : {key:'pass', label:'—'};
-
-    document.getElementById('pctNum').innerHTML = (pct!==null? pct : '--') + '<sup>%</sup>';
-    document.getElementById('pctTier').textContent = tier.label;
-    document.getElementById('stuName').textContent = stu.name || '—';
-    document.getElementById('stuMeta').textContent =
-      'رقم الجلوس: ' + stu.seat + (stu.total!==null ? '   ·   المجموع: ' + stu.total + ' من ' + maxTotal : '');
-
-    const trackBadge = document.getElementById('trackBadge');
-    const track = detectTrack(stu);
-    if(track){ trackBadge.textContent = track; trackBadge.style.display='inline-block'; }
-    else { trackBadge.style.display='none'; }
-
-    const ribbon = document.getElementById('ribbon');
-    ribbon.innerHTML = (pct!==null ? pick(PHRASES[tier.key]) : 'نتمنى لك كل التوفيق') +
-      '<span class="sig">من صفحة ميت سلسيل 360</span>';
-
-    const body = document.getElementById('gradesBody');
-    body.innerHTML = '';
-    // only list subjects this student actually sat for (grade present) —
-    // this keeps the table to the 5 subjects of their track, whatever it is
-    stu.subjects.forEach(s=>{
-      if(!s.name) return;
-      if(s.grade===null || s.grade===undefined || s.grade==='') return;
-      const tr = document.createElement('tr');
-      tr.innerHTML = '<td class="subject-cell">'+s.name+'</td><td>'+s.grade+'</td>';
-      body.appendChild(tr);
+  function showResult(stu) {
+    document.getElementById('searchCard').style.display = 'none';
+    document.getElementById('resultCard').style.display = 'block';
+    document.getElementById('stuName').textContent = stu.name;
+    document.getElementById('stuMeta').textContent = "رقم الجلوس: " + stu.seat;
+    document.getElementById('totalScore').textContent = stu.total;
+    
+    const pct = ((stu.total / MAX_TOTAL) * 100).toFixed(2);
+    document.getElementById('pctNum').textContent = pct + "%";
+    
+    const tbody = document.getElementById('gradesBody');
+    tbody.innerHTML = '';
+    stu.grades.forEach(g => {
+      const max = SUBJECT_MAX[g.name] || '--';
+      tbody.innerHTML += `<tr><td class="subject-name">${g.name}</td><td>${g.val || 0}</td><td>${max}</td></tr>`;
     });
-    if(stu.total!==null){
-      const tr = document.createElement('tr');
-      tr.className='total-row';
-      tr.innerHTML = '<td class="subject-cell">المجموع الكلي</td><td>'+stu.total+' / '+maxTotal+'</td>';
-      body.appendChild(tr);
-    }
-
-    document.getElementById('printDate').textContent = new Date().toLocaleDateString('ar-EG');
-
-    searchCard.style.display='none';
-    resultCard.style.display='block';
-    window.scrollTo({top:0, behavior:'smooth'});
   }
 
-  document.getElementById('newSearchBtn').addEventListener('click', ()=>{
-    resultCard.style.display='none';
-    searchCard.style.display='block';
-    document.getElementById('seatInput').value='';
-    document.getElementById('nameInput').value='';
-    document.getElementById('matchList').innerHTML='';
-    clearError();
+  document.getElementById('seatBtn').addEventListener('click', () => {
+    const val = document.getElementById('seatInput').value.trim();
+    const stu = students.find(s => s.seat === val);
+    if(stu) showResult(stu); else alert('رقم الجلوس غير موجود');
   });
 
-  document.getElementById('printBtn').addEventListener('click', ()=> window.print());
-
-  // ---------------- Seat search ----------------
-  document.getElementById('seatBtn').addEventListener('click', ()=>{
-    clearError();
-    if(!dataReady){ showError('لم يتم تحميل ملف النتيجة بعد'); return; }
-    const q = document.getElementById('seatInput').value.trim();
-    if(!q){ showError('من فضلك اكتب رقم الجلوس'); return; }
-    const found = students.find(s => s.seat === q);
-    if(!found){ showError('لا توجد نتيجة برقم الجلوس ' + q); return; }
-    renderResult(found);
-  });
-  document.getElementById('seatInput').addEventListener('keydown', e=>{
-    if(e.key==='Enter') document.getElementById('seatBtn').click();
-  });
-
-  // ---------------- Name search ----------------
-  document.getElementById('nameBtn').addEventListener('click', ()=>{
-    clearError();
+  document.getElementById('nameBtn').addEventListener('click', () => {
+    const val = normalize(document.getElementById('nameInput').value);
+    const matches = students.filter(s => s.normName.includes(val));
     const list = document.getElementById('matchList');
-    list.innerHTML='';
-    if(!dataReady){ showError('لم يتم تحميل ملف النتيجة بعد'); return; }
-    const raw = document.getElementById('nameInput').value.trim();
-    if(!raw){ showError('من فضلك اكتب الاسم'); return; }
-    const q = normalizeArabic(raw);
-    const matches = students.filter(s => s.normName.includes(q));
-    if(matches.length===0){ showError('لا توجد نتيجة بهذا الاسم'); return; }
-    if(matches.length===1){ renderResult(matches[0]); return; }
-    matches.slice(0,20).forEach(m=>{
-      const div = document.createElement('div');
-      div.className='match-item';
-      div.innerHTML = '<span class="m-name">'+m.name+'</span><span class="m-seat">'+m.seat+'</span>';
-      div.addEventListener('click', ()=> renderResult(m));
-      list.appendChild(div);
-    });
-  });
-  document.getElementById('nameInput').addEventListener('keydown', e=>{
-    if(e.key==='Enter') document.getElementById('nameBtn').click();
-  });
-
-  // ---------------- Live-preview links grid (bottom of page) ----------------
-  const OFFICIAL_LINKS = [
-    {name:'موقع نتيجة الثانوية العامة (رسمي - تحديث لحظي)', url:'https://www.natega-youm7.online/p/2025_15.html'},
-    {name:'بوابة الثانوية العامة - وزارة التربية والتعليم', url:'https://thanwya.emis.gov.eg/'},
-    {name:'موقع اليوم السابع', url:'http://www.youm7.com/'},
-    {name:'موقع فيتو', url:'http://www.vetogate.com/'},
-    {name:'موقع الدستور', url:'https://www.dostor.org/'},
-    {name:'موقع نتائج الامتحانات', url:'https://www.natega-youm7.online/'},
-    {name:'جريدة الوطن', url:'https://www.elwatannews.com/'},
-    {name:'بوابة الأهرام', url:'https://gate.ahram.org.eg/'},
-    {name:'صدى البلد', url:'https://natega.elbalad.news/'},
-    {name:'وزارة التربية والتعليم', url:'http://www.moe.gov.eg/'},
-    {name:'نتيجة ثانوي', url:'https://www.natega-youm7.online/p/2026_0508284584.htm'}
-  ];
-  const REFRESH_MS = 60 * 1000; // كل دقيقة
-
-  function withCacheBuster(url, ts){
-    return url + (url.includes('?') ? '&' : '?') + '_r=' + ts;
-  }
-
-  const linksGrid = document.getElementById('linksGrid');
-  const liveFrames = []; // {url, iframe}
-
-  OFFICIAL_LINKS.forEach((link, idx)=>{
-    const tile = document.createElement('div');
-    tile.className = 'link-tile';
-    tile.innerHTML =
-      '<div class="link-tile-head">' +
-        '<span class="lt-name">'+link.name+'</span>' +
-        '<div class="lt-btns">' +
-          '<button data-act="max">تكبير</button>' +
-          '<button data-act="open">فتح مباشر</button>' +
-        '</div>' +
-      '</div>' +
-      '<div class="link-tile-body"><iframe id="live_'+idx+'" src="'+link.url+'" loading="lazy" title="'+link.name+'"></iframe></div>' +
-      '<div class="link-tile-foot">لو المعاينة مش ظاهرة، استخدم "فتح مباشر"</div>';
-    tile.querySelector('[data-act="open"]').addEventListener('click', ()=> window.open(link.url, '_blank'));
-    tile.querySelector('[data-act="max"]').addEventListener('click', ()=> openPreview(link));
-    linksGrid.appendChild(tile);
-    liveFrames.push({url: link.url, iframe: tile.querySelector('iframe')});
-  });
-
-  // refresh every tile's preview every minute (cache-busted reload)
-  setInterval(()=>{
-    const ts = Date.now();
-    liveFrames.forEach(f => { f.iframe.src = withCacheBuster(f.url, ts); });
-  }, REFRESH_MS);
-
-  // ---------------- Full-screen preview overlay (from "تكبير") ----------------
-  const frameOverlay = document.getElementById('frameOverlay');
-  const frameIframe = document.getElementById('frameIframe');
-  const frameTitle = document.getElementById('frameTitle');
-  const frameClose = document.getElementById('frameClose');
-  const frameNewTab = document.getElementById('frameNewTab');
-  let currentUrl = '';
-
-  function openPreview(link){
-    currentUrl = link.url;
-    frameTitle.textContent = link.name;
-    frameIframe.src = link.url;
-    frameOverlay.classList.add('open');
-  }
-  frameClose.addEventListener('click', ()=>{
-    frameOverlay.classList.remove('open');
-    frameIframe.src = 'about:blank';
-  });
-  frameNewTab.addEventListener('click', ()=>{
-    if(currentUrl) window.open(currentUrl, '_blank');
+    list.innerHTML = '';
+    if(matches.length === 1) showResult(matches[0]);
+    else if(matches.length > 0) {
+      matches.slice(0, 10).forEach(m => {
+        const d = document.createElement('div');
+        d.className = 'ticket'; d.style.marginBottom='5px'; d.style.cursor='pointer';
+        d.innerHTML = `<small>${m.name} - ${m.seat}</small>`;
+        d.onclick = () => showResult(m);
+        list.appendChild(d);
+      });
+    } else alert('لم يتم العثور على الاسم');
   });
 })();
 </script>
