@@ -3,273 +3,260 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<title>نتيجة الثانوية العامة 2026 — ميت سلسيل</title>
+<title>احتفالية نجاح ثانوية 2026 — ميت سلسيل</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Amiri:wght@400;700&family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 <style>
   :root{
-    --paper:#FBF6EA; --paper-deep:#F1E9D6; --ink:#1B2A22;
-    --green:#1B4332; --green-deep:#0F2E22; --gold:#C6963A;
-    --brick:#A14A34; --line:#D8CBA6;
-    --shadow: 0 18px 40px -18px rgba(15,46,34,.35);
+    --gold: #C6963A;
+    --gold-light: #E8CE94;
+    --green: #1B4332;
+    --paper: #FFFDF7;
+    --border: #D4AF37;
   }
-  *{box-sizing:border-box;}
-  body{
-    background: radial-gradient(1200px 600px at 50% -10%, #ffffff 0%, var(--paper) 55%, var(--paper-deep) 100%);
-    color:var(--ink); font-family:'Tajawal', sans-serif; margin:0; padding:20px 15px; min-height:100vh;
-  }
-  .wrap{max-width:500px; margin:0 auto;}
-
-  .brandbar{text-align:center; margin-bottom:25px;}
-  .village{font-family:'Aref Ruqaa', serif; font-size:32px; color:var(--green-deep); margin:0;}
-  .village small{display:block; font-family:'Tajawal'; font-size:13px; color:var(--brick); letter-spacing:2px; font-weight:800;}
-
-  .card{
-    background:white; border:1px solid var(--line); border-radius:20px;
-    padding:20px; box-shadow:var(--shadow); margin-bottom:15px;
-  }
-
-  .tabs{display:flex; background:var(--paper-deep); border-radius:12px; padding:4px; margin-bottom:15px;}
-  .tab{flex:1; text-align:center; padding:10px; border-radius:10px; cursor:pointer; font-weight:700; color:#6b7a6f;}
-  .tab.active{background:var(--green); color:white;}
-
-  input{
-    width:100%; padding:15px; border:2px solid var(--line); border-radius:12px;
-    font-family:'Tajawal'; font-size:16px; font-weight:600; outline:none; transition:0.2s;
-  }
-  input:focus{border-color:var(--green);}
-
-  .btn{
-    width:100%; margin-top:12px; padding:15px; border:none; border-radius:12px;
-    font-weight:800; font-size:16px; cursor:pointer; font-family:'Tajawal';
-    background:var(--green); color:white;
-  }
-  .btn.gold{background:var(--gold); color:white;}
-  .btn.secondary{background:none; border:2px solid var(--green); color:var(--green);}
-
-  /* عرض النتيجة */
-  #resultCard{display:none;}
-  .cert{border:2px solid var(--gold); border-radius:20px; padding:25px; background:#FFFDF7; text-align:center;}
-  .pct-circle{
-    width:120px; height:120px; border:4px solid var(--green); border-radius:50%;
-    margin:0 auto 15px; display:flex; flex-direction:column; align-items:center; justify-content:center;
-  }
-  .pct-circle .num{font-size:28px; font-weight:800; color:var(--green-deep);}
-  .stu-name{font-size:22px; font-weight:800; margin-bottom:5px;}
-  .stu-info{font-size:14px; color:#5b6b60; margin-bottom:20px;}
   
-  .data-grid{display:grid; grid-template-columns: 1fr 1fr; gap:10px; margin-bottom:15px;}
-  .data-item{background:var(--paper); padding:12px; border-radius:10px; border:1px solid var(--line);}
-  .data-label{font-size:11px; color:var(--brick); font-weight:800; display:block;}
-  .data-val{font-size:18px; font-weight:800; color:var(--green-deep);}
-
-  .status-badge{
-    display:inline-block; padding:8px 25px; border-radius:99px; 
-    font-weight:800; font-size:16px; margin-top:10px;
-  }
-  .pass{background:#d4edda; color:#155724;}
-  .fail{background:#f8d7da; color:#721c24;}
-
-  .links-box{
-    margin-top:25px; text-align:center; padding:15px;
-    background:rgba(198,150,58,0.1); border-radius:15px; border:1px dashed var(--gold);
+  body {
+    background: #f0f2f5;
+    background-image: radial-gradient(#d1d1d1 1px, transparent 1px);
+    background-size: 20px 20px;
+    font-family: 'Tajawal', sans-serif;
+    margin: 0; padding: 20px 10px;
+    min-height: 100vh;
+    display: flex; justify-content: center;
   }
 
-  @media print{
-    .no-print{display:none !important;}
-    body{background:white; padding:0;}
-    .cert{border:2px solid #000; box-shadow:none;}
+  .container { width: 100%; max-width: 650px; }
+
+  /* الواجهة الرئيسية */
+  .main-card {
+    background: white; border-radius: 25px; padding: 30px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    text-align: center; border: 1px solid var(--gold-light);
+  }
+
+  .header-logo { width: 80px; margin-bottom: 10px; }
+  
+  .title-area h1 { 
+    font-family: 'Aref Ruqaa', serif; color: var(--green); 
+    font-size: 35px; margin: 0; 
+  }
+  .title-area p { color: var(--gold); font-weight: 800; margin-top: 5px; letter-spacing: 1px; }
+
+  /* صندوق البحث السريع */
+  .search-box {
+    background: #f8f9fa; border: 2px solid var(--gold-light);
+    border-radius: 15px; padding: 20px; margin-top: 25px;
+  }
+  
+  .tabs { display: flex; gap: 10px; margin-bottom: 15px; }
+  .tab { 
+    flex: 1; padding: 12px; border-radius: 10px; cursor: pointer;
+    background: #eee; font-weight: 700; transition: 0.3s;
+  }
+  .tab.active { background: var(--green); color: white; }
+
+  input {
+    width: 100%; padding: 15px; border: 2px solid #ddd; border-radius: 12px;
+    font-size: 18px; text-align: center; font-family: 'Tajawal'; outline: none;
+  }
+  input:focus { border-color: var(--gold); box-shadow: 0 0 10px rgba(198,150,58,0.2); }
+
+  .btn-search {
+    background: linear-gradient(45deg, var(--green), #2d5a47);
+    color: white; border: none; width: 100%; padding: 15px;
+    border-radius: 12px; font-size: 18px; font-weight: 800;
+    margin-top: 15px; cursor: pointer; transform: transition 0.2s;
+  }
+  .btn-search:active { transform: scale(0.98); }
+
+  /* تصميم شهادة التقدير */
+  #resultArea { display: none; margin-top: 20px; }
+  
+  .certificate {
+    background: var(--paper);
+    border: 15px double var(--border);
+    padding: 40px;
+    position: relative;
+    box-shadow: 0 0 50px rgba(0,0,0,0.15);
+    background-image: url('https://www.transparenttextures.com/patterns/cream-paper.png');
+  }
+
+  .cert-header { font-family: 'Aref Ruqaa', serif; font-size: 28px; color: var(--green); margin-bottom: 10px; }
+  .cert-sub { font-family: 'Amiri', serif; font-size: 20px; color: #555; }
+  
+  .student-name {
+    font-family: 'Amiri', serif; font-size: 35px; font-weight: 700;
+    color: var(--green); border-bottom: 2px solid var(--gold-light);
+    display: inline-block; margin: 20px 0; padding: 0 20px;
+  }
+
+  .cert-body { font-size: 18px; line-height: 1.8; color: #333; margin: 20px 0; }
+  
+  .score-badge {
+    background: var(--green); color: white; padding: 15px 30px;
+    border-radius: 50px; display: inline-block; font-size: 24px; font-weight: 800;
+    box-shadow: 0 5px 15px rgba(27,67,50,0.3);
+  }
+
+  .cert-footer {
+    display: flex; justify-content: space-between; margin-top: 40px;
+    font-family: 'Amiri', serif; font-size: 16px;
+  }
+
+  .stamp {
+    position: absolute; bottom: 40px; left: 40px;
+    width: 100px; height: 100px; border: 3px double #a14a34;
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    color: #a14a34; font-weight: 800; transform: rotate(-15deg);
+    opacity: 0.7; font-size: 14px; text-align: center;
+  }
+
+  .no-print { margin-top: 20px; display: flex; gap: 10px; }
+  .btn-action {
+    flex: 1; padding: 12px; border-radius: 10px; cursor: pointer; font-weight: 700; border: none;
+  }
+  
+  @media print {
+    .no-print, .main-card, .search-box { display: none !important; }
+    body { padding: 0; background: white; }
+    .certificate { border: 10px double var(--border); box-shadow: none; margin: 0; }
   }
 </style>
 </head>
 <body>
 
-<div class="wrap">
-  <div class="brandbar no-print">
-    <h1 class="village">ميت سلسيل 360<small>نتيجة الثانوية العامة 2026</small></h1>
-  </div>
-
-  <div class="card no-print" id="searchCard">
-    <div class="tabs">
-      <div class="tab active" data-tab="seat">رقم الجلوس</div>
-      <div class="tab" data-tab="name">بالاسم</div>
+<div class="container">
+  <div class="main-card no-print">
+    <div class="title-area">
+      <img src="https://cdn-icons-png.flaticon.com/512/3135/3135810.png" class="header-logo" alt="logo">
+      <h1>ميت سلسيل 360</h1>
+      <p>بوابة إعلان نتائج وتكريم أوائل 2026</p>
     </div>
 
-    <div id="seatPane">
-      <input type="tel" id="seatInput" placeholder="أدخل رقم الجلوس هنا...">
-      <button class="btn" id="seatBtn">عرض النتيجة</button>
-    </div>
-
-    <div id="namePane" style="display:none;">
-      <input type="text" id="nameInput" placeholder="أدخل اسم الطالب رباعي...">
-      <button class="btn" id="nameBtn">بحث بالاسم</button>
-      <div id="matchList" style="margin-top:10px;"></div>
-    </div>
-
-    <div id="statusMsg" style="text-align:center; font-size:12px; color:#7c8a80; margin-top:15px;">جاري فحص ملفات النتيجة...</div>
-    <input type="file" id="manualFiles" multiple accept=".xlsx" style="display:none;">
-    <button class="btn secondary" style="font-size:12px; padding:8px;" onclick="document.getElementById('manualFiles').click()">أو ارفع ملفات Excel يدوياً</button>
-  </div>
-
-  <div class="card result-outer" id="resultCard">
-    <div class="cert">
-      <div class="pct-circle">
-        <div class="num" id="resPct">0%</div>
+    <div class="search-box">
+      <div class="tabs">
+        <div class="tab active" data-tab="seat">رقم الجلوس</div>
+        <div class="tab" data-tab="name">البحث بالاسم</div>
       </div>
-      <div class="stu-name" id="resName">--</div>
-      <div class="stu-info" id="resSeat">رقم الجلوس: --</div>
+      <input type="text" id="searchInput" placeholder="اكتب رقم الجلوس هنا...">
+      <button class="btn-search" id="searchBtn">استعلام ويارب نجاح! 🤲</button>
+    </div>
+    <div id="loadStatus" style="font-size: 11px; color: #999; margin-top: 10px;">بانتظار ملفات النتيجة...</div>
+  </div>
 
-      <div class="data-grid">
-        <div class="data-item">
-          <span class="data-label">المجموع الكلي</span>
-          <span class="data-val" id="resTotal">0</span>
-          <span style="font-size:11px;">من 320</span>
-        </div>
-        <div class="data-item">
-          <span class="data-label">الحالة</span>
-          <div id="resStatus" class="status-badge">--</div>
-        </div>
+  <div id="resultArea">
+    <div class="certificate" id="printableCertificate">
+      <div class="cert-header">شهادة تخرج وتقدير</div>
+      <div class="cert-sub">تتشرف صفحة ميت سلسيل 360 بتقديم خالص التهاني لـ</div>
+      
+      <div class="student-name" id="resName">الطالب فلان الفلاني</div>
+      
+      <div class="cert-body">
+        بمناسبة إتمام شهادة الثانوية العامة لعام 2026 <br>
+        بمجموع وقدره <span id="resTotal" style="font-weight: 800;">0</span> درجة من <span style="font-weight: 800;">320</span> <br>
+        بنسبة مئوية بلغت (<span id="resPct">0%</span>) وحالة: <b id="resStatus">ناجح</b>
       </div>
 
-      <div style="font-size:11px; color:#8a9089; margin-top:10px;">نتيجة استرشادية - صفحة ميت سلسيل 360</div>
+      <div class="score-badge" id="resBadge">ألف مبروك النجاح</div>
+
+      <div class="cert-footer">
+        <div>تحريراً في: <br> <span id="resDate"></span></div>
+        <div>إدارة الصفحة: <br> ميت سلسيل 360</div>
+      </div>
+
+      <div class="stamp">ختم النجاح <br> 2026</div>
     </div>
-    
-    <div class="no-print" style="margin-top:15px; display:flex; gap:10px;">
-      <button class="btn secondary" onclick="location.reload()">بحث جديد</button>
-      <button class="btn gold" onclick="window.print()">طباعة</button>
+
+    <div class="no-print">
+      <button class="btn-action" style="background:#eee;" onclick="location.reload()">بحث جديد</button>
+      <button class="btn-action" style="background:var(--gold); color:white;" onclick="window.print()">طباعة الشهادة 🖨️</button>
     </div>
   </div>
-
-  <div class="links-box no-print">
-    <p style="font-size:13px; font-weight:700; margin-bottom:10px;">روابط سريعة (اليوم السابع، الوطن، الدستور)</p>
-    <button class="btn" style="background:var(--brick);" id="openLinks">🚀 فتح جميع مواقع النتائج الآن</button>
-  </div>
-
-  <footer class="no-print" style="text-align:center; font-size:11px; color:#9aa39c; margin-top:20px;">
-    تمنياتنا بالنجاح والتفوق لجميع طلاب ميت سلسيل
-  </footer>
 </div>
 
 <script>
 (function(){
-  const MAX_TOTAL = 320;
   let students = [];
-  const filesToLoad = ['students1.xlsx', 'students2.xlsx'];
+  const MAX_TOTAL = 320;
+  let currentTab = 'seat';
 
-  const statusMsg = document.getElementById('statusMsg');
-
-  // معالجة ملفات الأكسل
-  function processWorkbook(buffer) {
-    const wb = XLSX.read(buffer, {type:'array'});
-    const sheet = wb.Sheets[wb.SheetNames[0]];
-    const rows = XLSX.utils.sheet_to_json(sheet, {header:1});
-    
-    // الأعمدة: 0:رقم الجلوس، 1:المجموع، 2:الاسم، 3:الحالة
-    const data = rows.slice(1)
-      .filter(r => r[0])
-      .map(r => ({
-        seat: String(r[0]).trim(),
-        total: parseFloat(r[1]) || 0,
-        name: String(r[2] || '').trim(),
-        status: String(r[3] || 'غير محدد').trim(),
-        normName: normalize(String(r[2] || ''))
-      }));
-    students = students.concat(data);
-    statusMsg.textContent = `تم تحميل ${students.length} طالب من الملفات`;
+  // تحميل البيانات من الملفات تلقائياً
+  async function loadData() {
+    const files = ['students1.xlsx', 'students2.xlsx'];
+    for (let f of files) {
+      try {
+        const res = await fetch('./' + f);
+        const buf = await res.arrayBuffer();
+        const wb = XLSX.read(buf, {type:'array'});
+        const data = XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]], {header:1});
+        const processed = data.slice(1).filter(r => r[0]).map(r => ({
+          seat: String(r[0]).trim(),
+          total: parseFloat(r[1]) || 0,
+          name: String(r[2] || '').trim(),
+          status: String(r[3] || 'ناجح').trim(),
+          normName: String(r[2] || '').replace(/[إأآا]/g,'ا').replace(/ى/g,'ي').replace(/ة/g,'ه').trim()
+        }));
+        students = students.concat(processed);
+      } catch(e) {}
+    }
+    document.getElementById('loadStatus').textContent = `تم جاهزية النظام.. (${students.length} طالب)`;
   }
+  loadData();
 
-  // تحميل تلقائي
-  Promise.all(
-    filesToLoad.map(file => 
-      fetch('./' + file)
-        .then(res => { if(!res.ok) throw new Error(); return res.arrayBuffer(); })
-        .then(buf => processWorkbook(buf))
-        .catch(() => console.log('ملف غير موجود: ' + file))
-    )
-  );
-
-  // رفع يدوي
-  document.getElementById('manualFiles').addEventListener('change', function(e){
-    const files = e.target.files;
-    students = []; // مسح القديم
-    Array.from(files).forEach(file => {
-      const reader = new FileReader();
-      reader.onload = (e) => processWorkbook(e.target.result);
-      reader.readAsArrayBuffer(file);
+  // تبديل التبويبات
+  document.querySelectorAll('.tab').forEach(t => {
+    t.addEventListener('click', function() {
+      document.querySelectorAll('.tab').forEach(x => x.classList.remove('active'));
+      this.classList.add('active');
+      currentTab = this.dataset.tab;
+      document.getElementById('searchInput').placeholder = currentTab === 'seat' ? "اكتب رقم الجلوس هنا..." : "اكتب اسم الطالب رباعي...";
     });
   });
 
-  function normalize(s) {
-    return s.replace(/[إأآا]/g,'ا').replace(/ى/g,'ي').replace(/ة/g,'ه').replace(/\s+/g,' ').trim();
+  function fireConfetti() {
+    confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 }, colors: ['#C6963A', '#1B4332', '#ffffff'] });
   }
 
   function showResult(stu) {
-    document.getElementById('searchCard').style.display = 'none';
-    document.getElementById('resultCard').style.display = 'block';
+    document.getElementById('resultArea').style.display = 'block';
+    document.querySelector('.main-card').style.display = 'none';
     
     document.getElementById('resName').textContent = stu.name;
-    document.getElementById('resSeat').textContent = "رقم الجلوس: " + stu.seat;
     document.getElementById('resTotal').textContent = stu.total;
+    document.getElementById('resStatus').textContent = stu.status;
+    document.getElementById('resPct').textContent = ((stu.total / MAX_TOTAL) * 100).toFixed(2) + "%";
+    document.getElementById('resDate').textContent = new Date().toLocaleDateString('ar-EG');
     
-    const pct = ((stu.total / MAX_TOTAL) * 100).toFixed(2);
-    document.getElementById('resPct').textContent = pct + "%";
-    
-    const statusEl = document.getElementById('resStatus');
-    statusEl.textContent = stu.status;
-    statusEl.className = 'status-badge ' + (stu.status.includes('دور') || stu.status.includes('راسب') ? 'fail' : 'pass');
+    if(!stu.status.includes('دور') && !stu.status.includes('راسب')) {
+      fireConfetti();
+      document.getElementById('resBadge').textContent = "ألف مبروك التخرج والنجاح";
+    } else {
+      document.getElementById('resBadge').textContent = "نتمنى لك التوفيق";
+      document.getElementById('resBadge').style.background = "#a14a34";
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  // البحث
-  document.getElementById('seatBtn').addEventListener('click', () => {
-    const val = document.getElementById('seatInput').value.trim();
-    const stu = students.find(s => s.seat === val);
-    if(stu) showResult(stu); else alert('رقم الجلوس غير موجود في الملفات المرفوعة');
-  });
+  document.getElementById('searchBtn').addEventListener('click', () => {
+    const val = document.getElementById('searchInput').value.trim();
+    if(!val) return alert('برجاء إدخال بيانات البحث');
 
-  document.getElementById('nameBtn').addEventListener('click', () => {
-    const val = normalize(document.getElementById('nameInput').value);
-    if(val.length < 3) return alert('يرجى كتابة 3 أحرف على الأقل');
-    const matches = students.filter(s => s.normName.includes(val));
-    
-    const list = document.getElementById('matchList');
-    list.innerHTML = '';
-    
-    if(matches.length === 1) {
-      showResult(matches[0]);
-    } else if(matches.length > 1) {
-      matches.slice(0, 15).forEach(m => {
-        const d = document.createElement('div');
-        d.className = 'card'; d.style.padding = '10px'; d.style.cursor = 'pointer'; d.style.marginBottom = '5px';
-        d.innerHTML = `<div style="font-size:14px; font-weight:700;">${m.name}</div><div style="font-size:12px; color:var(--gold)">رقم الجلوس: ${m.seat}</div>`;
-        d.onclick = () => showResult(m);
-        list.appendChild(d);
-      });
+    if(currentTab === 'seat') {
+      const stu = students.find(s => s.seat === val);
+      if(stu) showResult(stu); else alert('رقم الجلوس غير موجود');
     } else {
-      alert('لم يتم العثور على هذا الاسم');
+      const normVal = val.replace(/[إأآا]/g,'ا').replace(/ى/g,'ي').replace(/ة/g,'ه');
+      const matches = students.filter(s => s.normName.includes(normVal));
+      if(matches.length === 1) showResult(matches[0]);
+      else if(matches.length > 1) {
+        let names = matches.slice(0,5).map(m => m.name + " (" + m.seat + ")").join('\n');
+        alert("وجدنا أكثر من اسم، يرجى استخدام رقم الجلوس للدقة. \nأبرز النتائج:\n" + names);
+      } else alert('لم يتم العثور على الاسم');
     }
   });
-
-  // الروابط
-  document.getElementById('openLinks').addEventListener('click', () => {
-    const links = [
-      'https://natega.youm7.com/',
-      'https://www.dostor.org/',
-      'https://natega.elwatannews.com/',
-      'https://thanwya.emis.gov.eg/'
-    ];
-    links.forEach(l => window.open(l, '_blank'));
-  });
-
-  // التبويبات
-  document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', function(){
-    document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
-    this.classList.add('active');
-    document.getElementById('seatPane').style.display = this.dataset.tab === 'seat' ? 'block' : 'none';
-    document.getElementById('namePane').style.display = this.dataset.tab === 'name' ? 'block' : 'none';
-  }));
 })();
 </script>
-
 </body>
 </html>
